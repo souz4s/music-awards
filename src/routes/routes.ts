@@ -1,10 +1,12 @@
 import { Router } from 'express'
 
 import MusicsController from '../controllers/MusicsController'
+import AuthorsController from '../controllers/AuthorsController'
 
 const router = Router()
 
 const musicsController = new MusicsController()
+const authorsController = new AuthorsController()
 
 router.get('/hello', (req, res) => {
     var date = new Date()
@@ -20,5 +22,15 @@ router.post('/music', (req, res) => musicsController.store(req, res))
 router.get('/music/:musicId', (req, res) => musicsController.show(req, res))
 router.put('/music/:musicId', (req, res) => musicsController.update(req, res))
 router.delete('/music/:musicId', (req, res) => musicsController.destroy(req, res))
+
+/**
+ * Authors Routes
+ */
+
+router.get('/author', (req, res) => authorsController.index(req, res))
+router.post('/author', (req, res) => authorsController.store(req, res))
+router.get('/author/:authorId', (req, res) => authorsController.show(req, res))
+router.put('/author/:authorId', (req, res) => authorsController.update(req, res))
+router.delete('/author/:authorId', (req, res) => authorsController.destroy(req, res))
 
 module.exports = router;
