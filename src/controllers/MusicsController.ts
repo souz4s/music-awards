@@ -1,8 +1,8 @@
-import PrismaConfig from '../config/prisma';
+import PrismaConfig from '../config/prisma'
 import { Request, Response } from 'express'
 
 export default class MusicsController {
-    public prisma = new PrismaConfig().prisma;
+    public prisma = new PrismaConfig().prisma
 
     public async index(req: Request, res: Response) {
         const musics = await this.prisma.musics.findMany()

@@ -1,8 +1,8 @@
-import PrismaConfig from "../config/prisma";
-import { Request, Response } from "express";
+import PrismaConfig from "../config/prisma"
+import { Request, Response } from "express"
 
 export default class AuthorsController {
-    public prisma = new PrismaConfig().prisma;
+    public prisma = new PrismaConfig().prisma
 
     public async index(req: Request, res: Response) {
         const author = await this.prisma.author.findMany()
